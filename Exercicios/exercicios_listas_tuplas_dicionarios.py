@@ -1,18 +1,24 @@
 #1) Faça um programa que peça as quatro notas de 10 alunos, calcule e armazene numa lista a
 #média de cada aluno, imprima o número de alunos com média maior ou igual a 7.0.
 
-nota1aluno1 = float(input('Digite a nota1 do aluno 1: '))
-nota1aluno2 = float(input('Digite a nota1 do aluno 2: '))
-nota1aluno3 = float(input('Digite a nota1 do aluno 3: '))
-nota1aluno4 = float(input('Digite a nota1 do aluno 4: '))
-nota1aluno5 = float(input('Digite a nota1 do aluno 5: '))
-nota1aluno6 = float(input('Digite a nota1 do aluno 6: '))
-nota1aluno7 = float(input('Digite a nota1 do aluno 7: '))
-nota1aluno8 = float(input('Digite a nota1 do aluno 8: '))
-nota1aluno9 = float(input('Digite a nota1 do aluno 9: '))
-nota1aluno10 = float(input('Digite a nota1 do aluno 10: '))
+lista_notas = []
+lista_medias = []
 
+quant_alunos = 10
+quant_notas = 4
 
+for aluno in range(quant_alunos): #Criar uma lista com 10 alunos
+    lista_notas.append([])
+    for nota in range(quant_notas):
+        lista_notas[aluno].append(float(input(f'Digite a nota {nota+1} do aluno {aluno+1} ')))
+
+for notas in lista_notas:
+    lista_medias.append(sum(notas)/len(notas))
+
+#Contar quantos alunos tem média maior ou igual a 7.
+alunos_aprovados = sum(1 for media in lista_medias if media >=7.0)
+
+print(f'O número de alunos com média maior ou igual a 7.0 é {alunos_aprovados}')
 #2) Programa nome ao contrário em maiúsculas. Faça um programa que permita ao usuário digitar 
 # o seu nome e em seguida mostre o nome do usuário de trás para frente utilizando somente letras maiúsculas.
 # Dica:lembre−se que ao informar o nome o usuário pode digitar letras maiúsculas ou minúsculas
@@ -24,7 +30,16 @@ print(nome_invertido)
 
 #3) Escreva um programa em Python que onde todos os valores em um dicionario são emitidos.
 #se sim, imprima true. Caso contrário, imprima false.
-dicionario = {}
+
+dicionario = {"Banana": 'fruta', "Moto": 'veículo', "Saia": 'roupa'}
+print(dicionario)
+
+valores_emitidos = all(valor for valor in dicionario.values())
+
+if valores_emitidos:
+    print('True')
+else:
+    Print('False')
 
 
 #4) "Utilizando listas faça um programa que faça 5 perguntas para uma pessoa sobre um 
